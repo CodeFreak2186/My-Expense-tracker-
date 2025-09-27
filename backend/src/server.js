@@ -13,7 +13,7 @@ import cors from "cors";
 dotenv.config();
 
 const app = express(); 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 if (process.env.NODE_ENV === "production") {
   job.start();
