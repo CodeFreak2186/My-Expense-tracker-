@@ -4,6 +4,7 @@ import { initDB} from "./config/db.js";
 import rateLimiter from "./middleware/rateLimiter.js";
 import transactionsRoutes from "./routes/transactionsRoutes.js";
 import job from "./config/corn.js";
+import cors from "cors";
 
 
 
@@ -12,6 +13,7 @@ import job from "./config/corn.js";
 dotenv.config();
 
 const app = express(); 
+app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
   job.start();
